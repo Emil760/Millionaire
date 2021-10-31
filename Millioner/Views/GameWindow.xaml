@@ -1,0 +1,137 @@
+﻿<Window x:Class="Millioner.Views.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        mc:Ignorable="d"
+        Name="window" Title="GameWindow" Height="600" Width="1000">
+    <Window.Background>
+        <ImageBrush ImageSource="/Resources/images/hall.png"/>
+    </Window.Background>
+
+    <Window.Resources>
+        <ResourceDictionary Source="/WindowResources\Dictionary2.xaml"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.3*"/>
+            <RowDefinition Height="1.3*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" DataContext="{Binding Path=PeopleTip}" Template="{StaticResource TipTemplate}" Command="{Binding ElementName=window, Path=DataContext.PeopleTipCommand}">
+                <Image Source="/Resources\images\people.png"/>
+            </Button>
+            <Button Grid.Column="1" DataContext="{Binding Path=PhoneTip}" Template="{StaticResource TipTemplate}" Command="{Binding ElementName=window, Path=DataContext.PhoneTipCommand}">
+                <Image Source="/Resources\images\phone.png"/>
+            </Button>
+            <Button Grid.Column="2" DataContext="{Binding Path=X2Tip}" Template="{StaticResource TipTemplate}" Command="{Binding ElementName=window, Path=DataContext.X2TipCommand}">
+                <TextBlock Text="X2" Style="{StaticResource MistakeStyle}"/>
+            </Button>
+            <Button Grid.Column="3" DataContext="{Binding Path=FiftyFiftyTip}" Template="{StaticResource TipTemplate}" Command="{Binding ElementName=window, Path=DataContext.FiftyFiftyCommand}">
+                <TextBlock Text="50:50" Style="{StaticResource FiftyFiftyStyle}"/>
+            </Button>
+        </Grid>
+
+        <ListBox 
+            Grid.Column="2"
+            Grid.Row="1"
+            Grid.RowSpan="4"
+            IsEnabled="{Binding Path=MoneyIsEnabled}"
+            ItemsSource="{Binding Path=Moneys}"
+            SelectedItem="{Binding Path=CurrentMoney}"
+            Template="{StaticResource ListBoxTemplate}"
+            ItemContainerStyle="{StaticResource ListBoxItemStyle}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding FireNumberChangedCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
+
+        <TextBlock Text="{Binding Path=Question}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="50,10" FontSize="20" Foreground="White" TextWrapping="Wrap"/>
+
+        <Button Grid.Column="0" Grid.Row="0" Content="Take money"
+            IsEnabled="{Binding Path=TakeMoneyIsEnabled}"
+            Template="{StaticResource TakeMoneyTemplate}"
+            Command="{Binding TakeMoneyCommand}" />
+
+        <Button x:Name="butt1" Grid.Column="0" Grid.Row="3"
+                DataContext="{Binding Path=Answers[0]}"
+                Command="{Binding ElementName=window, Path=DataContext.GiveAnswerCommand}"
+                CommandParameter="{Binding BindsDirectlyToSource=True}"
+                Template="{StaticResource ButtonTemplate }">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MaxWidth="65"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="A: " Style="{StaticResource VariantStyle}"/>
+                <TextBlock Grid.Column="1" Text="{Binding Path=Variant}" Style="{StaticResource AnswerStyle}" />
+            </Grid>
+        </Button>
+
+        <Button x:Name="butt2" Grid.Column="1" Grid.Row="3"
+                DataContext="{Binding Path=Answers[1]}"
+                Command="{Binding ElementName=window, Path=DataContext.GiveAnswerCommand}"
+                CommandParameter="{Binding BindsDirectlyToSource=True}"
+                Template="{StaticResource ButtonTemplate}">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MaxWidth="65"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="B: " Style="{StaticResource VariantStyle}"/>
+                <TextBlock Grid.Column="1" Text="{Binding Path=Variant}" Style="{StaticResource AnswerStyle}"/>
+            </Grid>
+        </Button>
+
+        <Button x:Name="butt3" Grid.Column="0" Grid.Row="4"
+                DataContext="{Binding Path=Answers[2]}"
+                Command="{Binding ElementName=window, Path=DataContext.GiveAnswerCommand}"
+                CommandParameter="{Binding BindsDirectlyToSource=True}"
+                Template="{StaticResource ButtonTemplate}">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MaxWidth="65"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="C: " Style="{StaticResource VariantStyle}"/>
+                <TextBlock Grid.Column="1" Text="{Binding Path=Variant}" Style="{StaticResource AnswerStyle}"/>
+            </Grid>
+        </Button>
+
+        <Button x:Name="butt4" Grid.Column="1" Grid.Row="4"
+                DataContext="{Binding Path=Answers[3]}"
+                Command="{Binding ElementName=window, Path=DataContext.GiveAnswerCommand}"
+                CommandParameter="{Binding BindsDirectlyToSource=True}"
+                Template="{StaticResource ButtonTemplate}">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MaxWidth="65"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="D: " Style="{StaticResource VariantStyle}"/>
+                <TextBlock Grid.Column="1" Text="{Binding Path=Variant}" Style="{StaticResource AnswerStyle}"/>
+            </Grid>
+        </Button>
+    </Grid>
+</Window>

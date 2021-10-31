@@ -1,0 +1,73 @@
+﻿<Window x:Class="Millioner.Views.PeopleTipWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="PeopleTipWindow" Height="550" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="/Resources\images\back_color.png"/>
+    </Window.Background>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/WindowResources\Dictionary2.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <LinearGradientBrush x:Key="TipBackground" StartPoint="0,0" EndPoint="5,1">
+                <GradientStop Color="#05122e" Offset="0"/>
+                <GradientStop Color="#FF075765" Offset="0.2"/>
+                <GradientStop Color="#05122e" Offset="0.5"/>
+                <GradientStop Color="#074b95" Offset="0.8"/>
+                <GradientStop Color="#05122e" Offset="1"/>
+            </LinearGradientBrush>
+
+            <Style TargetType="Border">
+                <Setter Property="BorderBrush" Value="DarkKhaki"/>
+                <Setter Property="BorderThickness" Value="3" />
+                <Setter Property="Background" Value="{StaticResource TipBackground}"/>
+                <Setter Property="Margin" Value="20"/>
+                <Setter Property="VerticalAlignment" Value="Bottom"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Bottom">
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Path=A}" Style="{StaticResource VariantStyle}" Margin="0,10"/>
+            <Border Grid.Row="1" Grid.Column="0" Height="{Binding Path=HeightA}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Bottom">
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=B}" Style="{StaticResource VariantStyle}" Margin="0,10"/>
+            <Border Grid.Row="1" Grid.Column="1" Height="{Binding Path=HeightB}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Bottom">
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Path=C}" Style="{StaticResource VariantStyle}" Margin="0,10"/>
+            <Border Grid.Row="1" Grid.Column="2" Height="{Binding Path=HeightC}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="3" Orientation="Vertical" VerticalAlignment="Bottom">
+            <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding Path=D}" Style="{StaticResource VariantStyle}" Margin="0,10"/>
+            <Border Grid.Row="1" Grid.Column="3" Height="{Binding Path=HeightD}"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="A" Style="{StaticResource VariantStyle}"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="B" Style="{StaticResource VariantStyle}"/>
+        <TextBlock Grid.Row="2" Grid.Column="2" Text="C" Style="{StaticResource VariantStyle}"/>
+        <TextBlock Grid.Row="2" Grid.Column="3" Text="D" Style="{StaticResource VariantStyle}"/>
+    </Grid>
+</Window>

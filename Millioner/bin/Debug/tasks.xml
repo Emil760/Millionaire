@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <Complexity complexity="1">
+    <Question id="0" question="Какое геометрическое тело получается вращением круга вокруг своего диаметра?" answer1="Шар" answer2="Конус" answer3="Цилиндр" answer4="Треугольник" />
+	<Question id="0" question="Какая столица у Англии?" answer1="Лондон" answer2="Баку" answer3="Берлин" answer4="Анкара" />
+  </Complexity>
+  <Complexity complexity="2">
+    <Question id="0" question="Столица Австралии" answer1="Канберра" answer2="Мельбурн" answer3="Брисбен" answer4="Сидней" />
+    <Question id="1" question="Что в переводе с английского значит слово &quot;danger&quot;?" answer1="Опастный" answer2="Дно" answer3="Зло" answer4="Зверь" />
+    <Question id="2" question="Родительный падеж отвечает на вопрос?" answer1="Кого? Чего?" answer2="О ком? О чём?" answer3="Кем? Чем?" answer4="Кому? Чему?" />
+  </Complexity>
+  <Complexity complexity="3">
+    <Question id="0" question="Как заканчивается русская поговорка: «Раз на раз…»?" answer1="Не приходиться" answer2="Не просчитываеться" answer3="Не выкидываеться" answer4="Не получаеться" />
+    <Question id="1" question="Какое количество известных планет в солнечной системе?" answer1="8" answer2="7" answer3="6" answer4="5" />
+    <Question id="2" question="Как говорят о человеке, который делает опасные или авантюрные вещи?" answer1="Сорвиголова" answer2="Всадник без головы" answer3="Пират" answer4="Ленивец" />
+  </Complexity>
+  <Complexity complexity="4">
+    <Question id="0" question="Какая страна занимает первое место по численности населения в 2019 году?" answer1="Китай" answer2="Россия" answer3="Великобритания " answer4="Идия" />
+    <Question id="1" question="Как называется книжный жанр, в мирах которого существует магия или магические существа?" answer1="Фэнтези" answer2="Социальная фантастика" answer3="Нон-фикшн" answer4="Техно" />
+  </Complexity>
+  <Complexity complexity="5">
+    <Question id="0" question="Столица Канады?" answer1="Оттава" answer2="Мадрид" answer3="Стамбул" answer4="Баку" />
+    <Question id="1" question="Какая самая большая река в мире?" answer1="Нил" answer2="Миссисипи" answer3="Амазонка" answer4="Обь" />
+    <Question id="2" question="Сколько сантиметров в одном километре?" answer1="Сто тысяч" answer2="Сто" answer3="Тысяча" answer4="Миллион" />
+  </Complexity>
+  <Complexity complexity="6">
+    <Question id="0" question="Сила действия равна силе..." answer1="Противодействия" answer2="Взаимодействия двух других тел" answer3="Ускорению тела" answer4="Этого же действия" />
+    <Question id="1" question="Благодаря какому металлу стекло превращается в хрусталь?" answer1="Свинец" answer2="Алюминий" answer3="Литий" answer4="Хром" />
+  </Complexity>
+  <Complexity complexity="7">
+    <Question id="0" question="Сколько сантиметров в дюйме?" answer1="2.54" answer2="2.48" answer3="2" answer4="1.8" />
+    <Question id="1" question="Какой город был столицей Российской Империи?" answer1="Санкт-Петербург" answer2="Москва" answer3="Волга" answer4="Сибирь" />
+    <Question id="2" question="Какое число обозначает римская цифра M?" answer1="1000" answer2="100" answer3="50" answer4="500" />
+  </Complexity>
+  <Complexity complexity="8">
+    <Question id="0" question="Кем был Бенджамин Франклин?" answer1="Политический деятель" answer2="Президент США" answer3="Предприниматель" answer4="Композитор" />
+    <Question id="1" question="Родина картофеля?" answer1="Южная Америка" answer2="Беларусь" answer3="Острова Океании" answer4="Китай" />
+    <Question id="2" question="Что измеряется в паскалях?" answer1="Давление" answer2="Мощность" answer3="Сила тока" answer4="Сила тока" />
+  </Complexity>
+  <Complexity complexity="9">
+    <Question id="0" question="Официальный язык Бразилии" answer1="Португальский" answer2="Испанкий" answer3="Бразильский" answer4="Французский" />
+  </Complexity>
+  <Complexity complexity="10">
+    <Question id="0" question="Какая нота расположена на третьей линейке нотного стана в скрипичном ключе?" answer1="Си" answer2="До" answer3="Ми" answer4="Фа" />
+    <Question id="1" question="Какая страна является родиной велосипеда?" answer1="Германия" answer2="Франция" answer3="Великобритания" answer4="США" />
+  </Complexity>
+  <Complexity complexity="11">
+    <Question id="0" question="Какой газ выделяется после грозы?" answer1="Озон" answer2="Кислород" answer3="Углекислый газ" answer4="Водород" />
+    <Question id="1" question="Какой знаменитый физик создал планетарную модель атома?" answer1="Эрнест Резерфорд" answer2="Нильс Бор" answer3="Майкл Фарадей" answer4="Альберт Эйнштеин" />
+    <Question id="2" question="В какой стране находится город Сарагоса?" answer1="Испания" answer2="Аргентина" answer3="Чили" answer4="Перу" />
+  </Complexity>
+  <Complexity complexity="12">
+    <Question id="0" question="Сколько лет длилась столетняя война?" answer1="116" answer2="110" answer3="100" answer4="98" />
+  </Complexity>
+  <Complexity complexity="13">
+    <Question id="0" question="На каком сложнейшем языке писала элита в Древней Индии?" answer1="Сансрипт" answer2="Латынь" answer3="Урду" answer4="Урурский" />
+    <Question id="1" question="Ягоды годжи — это плоды какого кустарника?" answer1="Дерезы" answer2="Барбариса" answer3="Аронии" answer4="Боярышника" />
+    <Question id="2" question="Что лечит пульмонолог?" answer1="Органы дыхания" answer2="Суставы" answer3="Кровеносную систему" answer4="Почки" />
+  </Complexity>
+  <Complexity complexity="14">
+    <Question id="0" question="Какой океан омывает берега Французской Полинезии?" answer1="Тихий" answer2="Идийский" answer3="Атлантический" answer4="Никакой" />
+    <Question id="1" question="Кто написал картину «Портрет Джиневры де Бенчи»?" answer1="Леонардо да Винчи" answer2="Сальвадор Дали" answer3="Рафаэль" answer4="Микеланджело" />
+    <Question id="2" question="Какой буквой чаще всего обозначали вымышленный город в русской литературе?" answer1="Н" answer2="З" answer3="Х" answer4="Ч" />
+  </Complexity>
+  <Complexity complexity="15">
+    <Question id="0" question="Кто является первым миллиардером в истории?" answer1="Джон Рокфеллер" answer2="Билл Гейтс" answer3="Майер Ротшильд" answer4="Тони Старк" />
+    <Question id="1" question="Марс — это древнеримский бог?" answer1="Войны" answer2="Правосудия" answer3="Земледелия" answer4="Торговли" />
+    <Question id="2" question="Кто такой Густав Климт?" answer1="Художник" answer2="Писатель" answer3="Поэт" answer4="Актёр" />
+  </Complexity>
+</root>

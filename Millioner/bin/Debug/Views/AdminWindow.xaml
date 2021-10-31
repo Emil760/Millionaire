@@ -1,0 +1,347 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Millioner.Views"
+        xmlns:Millioner="clr-namespace:Millioner"
+        xmlns:Utilities="clr-namespace:Millioner.Utilities"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        x:Class="Millioner.Views.AdminWindow"
+        mc:Ignorable="d"        
+        Title="Admin"
+        Height="450"
+        Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/resources/image/back_color.png"/>
+    </Window.Background>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="WindowResources/Dictionary1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--<LinearGradientBrush x:Key="ButtonBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF0B56DC" Offset="1"/>
+                <GradientStop Color="#FF86D80F" Offset="0.2"/>
+                <GradientStop Color="#FF0A5580" Offset="0.8"/>
+                <GradientStop Color="#FF0BA42E" Offset="0.4"/>
+                <GradientStop Color="#FE238F80" Offset="0.6"/>
+            </LinearGradientBrush>
+
+            <LinearGradientBrush x:Key="TrackHBackground" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF1B1313" Offset="1"/>
+                <GradientStop Color="#FFFAC3B3" Offset="0.5"/>
+            </LinearGradientBrush>
+
+
+            <LinearGradientBrush x:Key="TrackVBackground" EndPoint="0,0" MappingMode="RelativeToBoundingBox" StartPoint="1,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF1B1313" Offset="1"/>
+                <GradientStop Color="#FFFAC3B3" Offset="0.5"/>
+            </LinearGradientBrush>
+
+
+            <ControlTemplate x:Key="ScrollBarRepeatButtonTemplate" TargetType="{x:Type RepeatButton}">
+                <Grid Cursor="Hand">
+                    <Ellipse Fill="LightGray"/>
+                    <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </Grid>
+            </ControlTemplate>
+
+
+            <ControlTemplate x:Key="ThumbTemplate" TargetType="{x:Type Thumb}">
+                <Border CornerRadius="20" Background="Red"/>
+            </ControlTemplate>
+
+
+            <ControlTemplate x:Key="ScrollBarVTempate" TargetType="{x:Type ScrollBar}">
+                <Border Width="15" CornerRadius="15" Background="{StaticResource TrackVBackground}" SnapsToDevicePixels="True">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="15"/>
+                        </Grid.RowDefinitions>
+
+                        <RepeatButton Grid.Row="0" Template="{StaticResource ScrollBarRepeatButtonTemplate}" Command="ScrollBar.LineDownCommand">
+                            <Polyline Points="2.3,12.6 7.5,2.3 12.6,12.6" Stroke="Black" StrokeThickness="2"/>
+                        </RepeatButton>
+
+                        <Track Grid.Row="1">
+                            <Track.DecreaseRepeatButton>
+                                <RepeatButton Background="Transparent" Focusable="False" IsTabStop="False" Command="ScrollBar.PageUpCommand"/>
+                            </Track.DecreaseRepeatButton>
+                            <Track.Thumb>
+                                <Thumb Template="{StaticResource ThumbTemplate}" />
+                            </Track.Thumb>
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton Background="Transparent" Focusable="False" IsTabStop="False" Command="ScrollBar.PageDownCommand"/>
+                            </Track.IncreaseRepeatButton>
+                        </Track>
+
+                        <RepeatButton Grid.Row="2" Template="{StaticResource ScrollBarRepeatButtonTemplate}" Command="ScrollBar.LineUpCommand">
+                            <Polyline Points="2.3,2.3 7.5,12.6 12.6,2.3" Stroke="Black" StrokeThickness="2"/>
+                        </RepeatButton>
+
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+
+
+            <ControlTemplate x:Key="ScrollBarHTemplate" TargetType="{x:Type ScrollBar}">
+                <Border Height="15" CornerRadius="15" Background="{StaticResource TrackHBackground}" SnapsToDevicePixels="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="15"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+
+                        <RepeatButton Grid.Column="0" Template="{StaticResource ScrollBarRepeatButtonTemplate}" Command="ScrollBar.LineLeftCommand">
+                            <Polyline Points="12.6,2.3 2.3,7.5 12.6,12.6" Stroke="Black" StrokeThickness="2"/>
+                        </RepeatButton>
+
+                        <Track x:Name="PART_Track" Grid.Column="1">
+                            <Track.DecreaseRepeatButton>
+                                <RepeatButton Background="Transparent" Focusable="False" IsTabStop="False" Command="ScrollBar.PageLeftCommand"/>
+                            </Track.DecreaseRepeatButton>
+                            <Track.Thumb>
+                                <Thumb Template="{StaticResource ThumbTemplate}"/>
+                            </Track.Thumb>
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton Background="Transparent" Focusable="False" IsTabStop="False" Command="ScrollBar.PageRightCommand"/>
+                            </Track.IncreaseRepeatButton>
+                        </Track>
+
+                        <RepeatButton Grid.Column="2" Template="{StaticResource ScrollBarRepeatButtonTemplate}" Command="ScrollBar.LineRightCommand">
+                            <Polyline Points="2.3,2.3 12.3,7.5 2.3,12.6" Stroke="Black" StrokeThickness="2"/>
+                        </RepeatButton>
+                    </Grid>
+
+                </Border>
+            </ControlTemplate>
+
+
+            <ControlTemplate x:Key="ScrollViewerTemplate" TargetType="{x:Type ScrollViewer}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition MaxHeight="20"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition MaxWidth="20"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ScrollContentPresenter Grid.Row="0" Grid.Column="0" />
+
+                    <ScrollBar Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Template="{StaticResource ScrollBarHTemplate}"/>
+
+                    <ScrollBar Grid.Row="0" Grid.Column="1" Orientation="Vertical" Template="{StaticResource ScrollBarVTempate}"/>
+                </Grid>
+            </ControlTemplate>
+
+
+            <ControlTemplate x:Key="ListBoxTemplate" TargetType="{x:Type ListBox}">
+                <Border x:Name="border" Background="SlateGray" BorderBrush="#FF247682" BorderThickness="5">
+                    <ScrollViewer Grid.Row="0" Grid.Column="0" CanContentScroll="True" Template="{StaticResource ScrollViewerTemplate}">
+                        <ItemsPresenter/>
+                    </ScrollViewer>
+                </Border>
+
+                <ControlTemplate.Triggers >
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter TargetName="border" Property="Background" Value="Gray"/>
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+
+
+            <Style x:Key="ListBoxItemContainerStyle" TargetType="ListBoxItem">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ListBoxItem">
+                            <Border x:Name="border" Padding="3">
+                                <ContentPresenter/>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="LightGreen"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
+            <DataTemplate x:Key="ListBoxDataTemplate" DataType="ListBoxItem">
+                <Border x:Name="border" Background="AliceBlue" BorderBrush="#FF949463" BorderThickness="2" SnapsToDevicePixels="True" Cursor="Hand">
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Name="ellipse" Width="20" Height="20" Margin="3" Fill="Red" Stroke="DimGray" StrokeThickness="2"/>
+                        <TextBlock Text="{Binding Question}" Margin="2" FontSize="12" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+
+                <DataTemplate.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter TargetName="border" Property="BorderBrush" Value="Yellow"/>
+                    </Trigger>
+
+                    <DataTrigger  Binding="{Binding SelectedComplexity}" Value="1">
+                        <Setter TargetName="ellipse" Property="Fill" Value="Green"/>
+                    </DataTrigger>
+                    <DataTrigger  Binding="{Binding SelectedComplexity}" Value="2">
+                        <Setter TargetName="ellipse" Property="Fill" Value="Green"/>
+                    </DataTrigger>
+                    <DataTrigger  Binding="{Binding SelectedComplexity}" Value="3">
+                        <Setter TargetName="ellipse" Property="Fill" Value="Green"/>
+                    </DataTrigger>
+                    <DataTrigger  Binding="{Binding SelectedComplexity}" Value="4">
+                        <Setter TargetName="ellipse" Property="Fill" Value="Green"/>
+                    </DataTrigger>
+                    <DataTrigger  Binding="{Binding SelectedComplexity}" Value="5">
+                        <Setter TargetName="ellipse" Property="Fill" Value="Green"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding SelectedComplexity}" Value="6">
+                        <Setter TargetName="ellipse" Property="Fill" Value="Yellow"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding SelectedComplexity}" Value="7">
+                        <Setter TargetName="ellipse" Property="Fill" Value="Yellow"/>
+                    </DataTrigger>
+                    <DataTrigger  Binding="{Binding SelectedComplexity}" Value="8">
+                        <Setter TargetName="ellipse" Property="Fill" Value="Yellow"/>
+                    </DataTrigger>
+                    <DataTrigger  Binding="{Binding SelectedComplexity}" Value="9">
+                        <Setter TargetName="ellipse" Property="Fill" Value="Yellow"/>
+                    </DataTrigger>
+                    <DataTrigger  Binding="{Binding SelectedComplexity}" Value="10">
+                        <Setter TargetName="ellipse" Property="Fill" Value="Yellow"/>
+                    </DataTrigger>
+                    <DataTrigger  Binding="{Binding SelectedComplexity}" Value="11">
+                        <Setter TargetName="ellipse" Property="Fill" Value="Red"/>
+                    </DataTrigger>
+                    <DataTrigger  Binding="{Binding SelectedComplexity}" Value="12">
+                        <Setter TargetName="ellipse" Property="Fill" Value="Red"/>
+                    </DataTrigger>
+                    <DataTrigger  Binding="{Binding SelectedComplexity}" Value="13">
+                        <Setter TargetName="ellipse" Property="Fill" Value="Red"/>
+                    </DataTrigger>
+                    <DataTrigger  Binding="{Binding SelectedComplexity}" Value="14">
+                        <Setter TargetName="ellipse" Property="Fill" Value="Red"/>
+                    </DataTrigger>
+                    <DataTrigger  Binding="{Binding SelectedComplexity}" Value="15">
+                        <Setter TargetName="ellipse" Property="Fill" Value="Red"/>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+
+            <ControlTemplate x:Key="ButtonTemplate" TargetType="{x:Type Button}">
+                <Border x:Name="border" Width="100" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Background="DarkRed" BorderBrush="DarkOliveGreen" BorderThickness="2" Cursor="Hand">
+                    <ContentPresenter TextBlock.Foreground="White" TextBlock.FontSize="20" TextBlock.FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <Border.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="4"/>
+                    </Border.Effect>
+                </Border>
+
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter TargetName="border" Property="Background" Value="LightGray"/>
+                        <Setter TargetName="border" Property="BorderBrush" Value="LightGray"/>
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="True">
+                        <Setter TargetName="border" Property="Background" Value="Red"/>
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>-->
+
+        </ResourceDictionary>
+                
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" MaxHeight="70"/>
+            <RowDefinition Height="9*" MaxHeight="300"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <ComboBox Grid.Row="0"
+                  Grid.Column="0"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  Height="30"
+                  Width="200"
+                  Cursor="Hand"
+                  BorderBrush="Gray"
+                  BorderThickness="3"
+                  FontSize="15"
+                  FontFamily="Lucida Bright"
+                  SelectedItem="{Binding SelectedComplexity}"
+                  ItemsSource="{Binding Complexities}"
+                  IsEnabled="{Binding ComplexityIsEnabled}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding ComplexityChangedCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ComboBox>
+
+
+        <ListBox Grid.Row="1"
+                 Grid.RowSpan="2"
+                 Grid.Column="0"
+                 Margin="5"
+                 IsEnabled="{Binding QuestionsIsEnabled}"
+                 SelectedItem="{Binding SelectedQuestion}"
+                 HorizontalContentAlignment="Stretch"
+                 ItemTemplate="{StaticResource ListBoxDataTemplate}"
+                 ItemsSource="{Binding Questions}"
+                 ItemContainerStyle="{StaticResource ListBoxItemContainerStyle}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding QuestionChangedCommnad}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
+
+
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Template="{StaticResource ButtonTemplate}" IsEnabled="{Binding AddIsEnabled}" Command="{Binding AddCommand}">Add</Button>
+            <Button Grid.Column="1" Template="{StaticResource ButtonTemplate}" IsEnabled="{Binding UpdateIsEnabled}" Command="{Binding UpdateCommand}">Update</Button>
+            <Button Grid.Column="2" Template="{StaticResource ButtonTemplate}" IsEnabled="{Binding RemoveIsEnabled}" Command="{Binding RemoveCommand}">Remove</Button>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Utilities:Placeholder Margin="20,10" Height="50" TextWrapping="Wrap" Text="{Binding Question}" PlaceholderText="Enter question" IsEnabled="{Binding QuestionIsEnabled}" Style="{StaticResource PlaceholderStyle}"/>
+            <Utilities:Placeholder Margin="20,10" Text="{Binding Answer1}" PlaceholderText="Enter correct answer" IsEnabled="{Binding Answer1IsEnabled}" Style="{StaticResource PlaceholderStyle}"/>
+            <Utilities:Placeholder Margin="20,10" Text="{Binding Answer2}" PlaceholderText="Enter second answer" IsEnabled="{Binding Answer2IsEnabled}" Style="{StaticResource PlaceholderStyle}"/>
+            <Utilities:Placeholder Margin="20,10" Text="{Binding Answer3}" PlaceholderText="Enter third answer" IsEnabled="{Binding Answer3IsEnabled}" Style="{StaticResource PlaceholderStyle}"/>
+            <Utilities:Placeholder Margin="20,10" Text="{Binding Answer4}" PlaceholderText="Enter fourth answer" IsEnabled="{Binding Answer4IsEnabled}" Style="{StaticResource PlaceholderStyle}"/>
+        </StackPanel>
+
+
+        <WrapPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,15,0">
+            <Button Margin="5" Width="100" Template="{StaticResource ButtonTemplate}" IsEnabled="{Binding SaveIsEnabled}" Command="{Binding SaveCommand}">Save</Button>
+            <Button Margin="5" Width="100" Template="{StaticResource ButtonTemplate}" IsEnabled="{Binding CancelIsEnabled}" Command="{Binding CancelCommand}">Cancel</Button>
+        </WrapPanel>
+
+    </Grid>
+</Window>

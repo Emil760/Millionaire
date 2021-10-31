@@ -1,0 +1,107 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Utilities="clr-namespace:Millioner.Utilities"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        x:Class="Millioner.Views.AdminWindow"
+        mc:Ignorable="d"        
+        Title="Admin" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/Resources/images/back_color.png"/>
+    </Window.Background>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/WindowResources\Dictionary1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" MaxHeight="70"/>
+            <RowDefinition Height="9*" />
+            <RowDefinition Height="3*" MaxHeight="200"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <ComboBox Grid.Row="0"
+                  Grid.Column="0"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  Height="30"
+                  Width="200"
+                  Cursor="Hand"
+                  BorderBrush="Gray"
+                  BorderThickness="3"
+                  FontSize="15"
+                  FontFamily="Lucida Bright"
+                  SelectedItem="{Binding SelectedComplexity}"
+                  ItemsSource="{Binding Complexities}"
+                  IsEnabled="{Binding ComplexityIsEnabled}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding ComplexityChangedCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ComboBox>
+
+
+        <ListBox Grid.Row="1"
+                 Grid.RowSpan="2"
+                 Grid.Column="0"
+                 Margin="10"
+                 IsEnabled="{Binding QuestionsIsEnabled}"
+                 SelectedItem="{Binding SelectedQuestion}"
+                 HorizontalContentAlignment="Stretch"
+                 ItemTemplate="{StaticResource ListBoxDataTemplate}"
+                 ItemsSource="{Binding Questions}"
+                 ItemContainerStyle="{StaticResource ListBoxItemContainerStyle}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding QuestionChangedCommnad}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
+
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Width="100" Template="{StaticResource ButtonTemplate}" IsEnabled="{Binding AddIsEnabled}" Command="{Binding AddCommand}">Add</Button>
+            <Button Grid.Column="1" Width="100" Template="{StaticResource ButtonTemplate}" IsEnabled="{Binding UpdateIsEnabled}" Command="{Binding UpdateCommand}">Update</Button>
+            <Button Grid.Column="2" Width="100" Template="{StaticResource ButtonTemplate}" IsEnabled="{Binding RemoveIsEnabled}" Command="{Binding RemoveCommand}">Remove</Button>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Utilities:Placeholder Grid.Row="0" Text="{Binding Question}" PlaceholderText="Enter question" IsEnabled="{Binding QuestionIsEnabled}" Style="{StaticResource QuestionStyle}"/>
+            <Utilities:Placeholder Grid.Row="1" Text="{Binding Answer1}" PlaceholderText="Enter correct answer" IsEnabled="{Binding Answer1IsEnabled}" Style="{StaticResource VariantStyle}"/>
+            <Utilities:Placeholder Grid.Row="2" Text="{Binding Answer2}" PlaceholderText="Enter second answer" IsEnabled="{Binding Answer2IsEnabled}" Style="{StaticResource VariantStyle}"/>
+            <Utilities:Placeholder Grid.Row="3" Text="{Binding Answer3}" PlaceholderText="Enter third answer" IsEnabled="{Binding Answer3IsEnabled}" Style="{StaticResource VariantStyle}"/>
+            <Utilities:Placeholder Grid.Row="4" Text="{Binding Answer4}" PlaceholderText="Enter fourth answer" IsEnabled="{Binding Answer4IsEnabled}" Style="{StaticResource VariantStyle}"/>
+        </Grid>
+
+
+        <WrapPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,15,0">
+            <Button Margin="5" Width="100" Template="{StaticResource ButtonTemplate}" IsEnabled="{Binding SaveIsEnabled}" Command="{Binding SaveCommand}">Save</Button>
+            <Button Margin="5" Width="100" Template="{StaticResource ButtonTemplate}" IsEnabled="{Binding CancelIsEnabled}" Command="{Binding CancelCommand}">Cancel</Button>
+        </WrapPanel>
+
+    </Grid>
+</Window>
